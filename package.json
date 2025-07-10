@@ -1,0 +1,23 @@
+{
+  "name": "pubs-table",
+  "version": "1.0.0",
+  "description": "A RPG Sheet Manager for DnD 5e 2024",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "update-backend": "node scripts/update-data.js",
+    "setup-frontend": "cd frontend && npm ci",
+    "start:backend": "node backend/server.js",
+    "start:frontend": "cd frontend && npm start",
+    "setup": "npm run update-backend && npm run setup-frontend",
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
+  },
+  "author": "Fernando Medeiros do Nascimento",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^9.2.0"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
