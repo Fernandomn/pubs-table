@@ -3,12 +3,17 @@
   "version": "1.0.0",
   "description": "A RPG Sheet Manager for DnD 5e 2024",
   "main": "index.js",
+  "private": true,
+  "workspaces": [
+    "frontend",
+    "backend"
+  ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "update-backend": "node scripts/update-data.js",
     "setup-frontend": "cd frontend && npm ci",
-    "start:backend": "node backend/server.js",
-    "start:frontend": "cd frontend && npm start",
+    "start:backend": "npm run start --workspace backend",
+    "start:frontend": "npm run start --workspace frontend",
     "setup": "npm run update-backend && npm run setup-frontend",
     "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
   },
