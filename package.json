@@ -15,7 +15,8 @@
     "start:backend": "npm run start --workspace backend",
     "start:frontend": "npm run start --workspace frontend",
     "setup": "npm run update-backend && npm run setup-frontend",
-    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\""
+    "start": "concurrently \"npm run start:backend\" \"npm run start:frontend\"",
+    "full-start": "npm run setup && npm run start"
   },
   "author": "Fernando Medeiros do Nascimento",
   "license": "ISC",
