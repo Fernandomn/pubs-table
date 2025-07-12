@@ -5,7 +5,6 @@ const fs = require("fs");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const { v4: uuid } = require("uuid");
-const authMiddleware = require("./middleware/auth");
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -13,6 +12,7 @@ app.use(bodyParser.json());
 const PORT = 3000;
 const DATA_DIR = path.join(__dirname, "data");
 const sessions = {};
+const authMiddleware = require("./middleware/auth")(sessions);
 
 app.get("/api/classes", (req, res) => {
   const filePath = path.join(DATA_DIR, "class", "index.json");
