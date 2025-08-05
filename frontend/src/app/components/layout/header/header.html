@@ -1,0 +1,24 @@
+<nz-header>
+  <div nz-flex nzVertical="false" nzJustify="space-between" nzAlign="center">
+    <div class="header-item logo">
+      <h1>Pub's Table</h1>
+    </div>
+    @if ( isLoggedIn() ) {
+    <div class="header-item menu-header">
+      <nav>
+        @for(item of menuItens; track item.id){
+        <a [routerLink]="item.link" [routerLinkActive]="['active']">{{
+          item.label
+        }}</a>
+        }
+      </nav>
+    </div>
+    }
+    <div class="header-item login-button">
+      @if( isLoggedIn() ) {
+      <button nz-button nzType="primary" (click)="logout()">Logout</button
+      >}@else{
+      <button nz-button nzType="primary" (click)="login()">Login</button>}
+    </div>
+  </div>
+</nz-header>
